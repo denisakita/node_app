@@ -7,14 +7,6 @@ var request = require('request');
 var GitHub = require('github-api');
 const axios = require('axios');
 
-const wreck = Wreck.defaults({
-  headers: { 
-    'authorization': `basic ${Buffer.from(`${USERNAME}:${API_KEY}`).toString(
-      "base64"
-    )}`,
-   },
-});
-
 var options = {
   apiUrl: 'api.github.com',
   path: '/user'
@@ -44,7 +36,7 @@ const init = async () => {
     method: 'GET',
     path: '/profile',
     handler:  async function (req, reply) {
-
+      
       var config = {
         method: 'get',
         url: 'https://api.github.com/user',
